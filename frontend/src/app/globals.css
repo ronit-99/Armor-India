@@ -1,0 +1,52 @@
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #163229;
+  --background: #f4faf6;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  min-height: 100vh;
+}
+
+/* Light Armor India theme while preserving semantic alert colours. */
+.text-white { color: #163229 !important; }
+.text-gray-300 { color: #3f5b50 !important; }
+.text-gray-400 { color: #527064 !important; }
+.text-gray-500 { color: #657d73 !important; }
+.text-gray-600 { color: #789087 !important; }
+[class*="bg-white/5"] { background-color: rgba(16, 185, 129, 0.06) !important; }
+[class*="bg-red-"][class*="text-white"],
+[class*="bg-emerald-"][class*="text-white"],
+[class*="from-red-"][class*="text-white"],
+[class*="from-emerald-"][class*="text-white"] { color: #ffffff !important; }
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-xl border border-shield-border rounded-2xl shadow-sm;
+  }
+  .glow-accent {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+  }
+  .glow-danger {
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.2);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #edf7f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #91b8a0;
+  border-radius: 3px;
+}
