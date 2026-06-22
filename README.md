@@ -129,6 +129,18 @@ hackathon/
 - [x] Presentation Deck (`docs/PRESENTATION.md`)
 - [ ] Demo Video (record using demo script above)
 
+## Deploy to Netlify
+
+The hosted build is self-contained: Next.js serves both the UI and `/api/*` serverless routes. The Python backend remains available for local development but is not required on Netlify.
+
+1. Choose **Add new project → Import an existing project** in Netlify.
+2. Select GitHub and `ronit-99/Armor-India`.
+3. Keep the build settings detected from `netlify.toml`.
+4. Add `GEMINI_API_KEY` under **Site configuration → Environment variables**.
+5. Optionally add `GEMINI_MODEL=gemini-2.5-flash`, then deploy.
+
+Do not set `NEXT_PUBLIC_API_URL` on Netlify. When it is unset, the frontend uses the same-origin serverless API and all modules remain connected.
+
 ## License
 
 Built for KAVACH Hackathon — Digital Public Safety Intelligence Challenge.

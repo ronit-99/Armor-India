@@ -51,7 +51,7 @@ export default function SetupPage() {
       if (res.success) loadStatus();
     } catch {
       setSuccess(false);
-      setMessage(`Cannot reach backend at ${API_BASE}. Run .\\restart.ps1 first.`);
+      setMessage(`Cannot reach backend at ${API_BASE}. Check the Netlify deployment log.`);
     } finally {
       setLoading(false);
     }
@@ -64,14 +64,14 @@ export default function SetupPage() {
           <Key className="w-7 h-7 text-shield-accent" />
           Setup & Configuration
         </h1>
-        <p className="text-gray-400 mt-1">One thing needed for full AI — paste your OpenAI API key below</p>
+        <p className="text-gray-400 mt-1">One thing needed for full AI — paste your Gemini API key below</p>
       </div>
 
       {backendOk === false && (
         <div className="glass-card p-5 border-red-500/30 glow-danger">
           <div className="flex items-center gap-2 text-red-400 font-semibold">
             <XCircle className="w-5 h-5" />
-            Backend not running
+            Deployment API unavailable
           </div>
           <p className="text-sm text-gray-300 mt-2">
             Open PowerShell in the project folder and run:
@@ -90,7 +90,7 @@ export default function SetupPage() {
             Running in Demo Mode
           </div>
           <p className="text-sm text-gray-300 mt-2">
-            Basic features work with rule-based detection. Add your OpenAI key below to unlock full AI analysis.
+            Basic features work with rule-based detection. Add your Gemini key below to unlock full AI analysis.
           </p>
         </div>
       )}
@@ -106,18 +106,18 @@ export default function SetupPage() {
       )}
 
       <div className="glass-card p-6 space-y-4">
-        <h2 className="font-semibold text-white">OpenAI API Key</h2>
+        <h2 className="font-semibold text-white">Gemini API Key</h2>
         <p className="text-sm text-gray-400">
           Get one at{" "}
-          <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer" className="text-shield-accent hover:underline">
-            platform.openai.com/api-keys
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer" className="text-shield-accent hover:underline">
+            aistudio.google.com/app/apikey
           </a>
         </p>
         <input
           type="password"
           value={apiKey}
           onChange={(e) => setApiKey(e.target.value)}
-          placeholder="sk-proj-..."
+          placeholder="Paste a Gemini API key"
           className="w-full bg-shield-dark border border-shield-border rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-shield-accent/50"
         />
         <button
@@ -139,8 +139,8 @@ export default function SetupPage() {
           <div>
             <p className="text-emerald-400 font-medium mb-2">Required (for full AI)</p>
             <ul className="space-y-1 text-gray-300">
-              <li>• OpenAI API key only</li>
-              <li>• Python 3.11+ (use <code className="text-gray-400">py</code> on Windows)</li>
+              <li>• Gemini API key only</li>
+              <li>• Node.js 20 for local development</li>
               <li>• Node.js 18+</li>
             </ul>
           </div>
@@ -149,7 +149,7 @@ export default function SetupPage() {
             <ul className="space-y-1 text-gray-500">
               <li>• SQL / database</li>
               <li>• Other API keys</li>
-              <li>• Cloud deployment</li>
+              <li>• Separate backend hosting</li>
               <li>• Docker</li>
             </ul>
           </div>
